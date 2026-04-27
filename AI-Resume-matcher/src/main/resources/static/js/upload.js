@@ -1,5 +1,5 @@
 (() => {
-  const API_BASE = '/api';
+  const API_BASE = '';
 
   document.querySelectorAll('.fade-up').forEach(el => el.classList.add('show'));
 
@@ -54,7 +54,7 @@
       window.location.href = 'result.html';
     } catch (err) {
       console.error(err);
-      setStatus('Backend not reachable. Start the Spring Boot app at http://localhost:8080.', true);
+      setStatus('Server error. Please try again.', true);
     }
   });
 })();
