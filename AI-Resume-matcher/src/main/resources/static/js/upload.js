@@ -1,5 +1,5 @@
 (() => {
-  const API_BASE = 'http://localhost:8080/api';
+  const API_BASE = '/api';
 
   document.querySelectorAll('.fade-up').forEach(el => el.classList.add('show'));
 
