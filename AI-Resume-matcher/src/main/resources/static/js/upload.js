@@ -1,5 +1,5 @@
 (() => {
-  const API_BASE = "/api";
+  const API_BASE = "https://ai-resume-matcher-fu1b.onrender.com/api";
 
   document.querySelectorAll('.fade-up').forEach(el => el.classList.add('show'));
 
