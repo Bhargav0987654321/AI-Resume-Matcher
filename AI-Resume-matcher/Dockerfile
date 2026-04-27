@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY . .
 
+WORKDIR /app/AI-Resume-matcher
+
 RUN mvn clean package -DskipTests
 
-CMD sh -c "java -jar AI-Resume-matcher/target/*.jar"
+CMD sh -c "java -jar target/*.jar"
