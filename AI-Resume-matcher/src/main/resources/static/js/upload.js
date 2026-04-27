@@ -1,5 +1,5 @@
 (() => {
-  const API_BASE = '';
+  const API_BASE = "https://ai-resume-matcher-fu1b.onrender.com/api";
 
   document.querySelectorAll('.fade-up').forEach(el => el.classList.add('show'));
 
@@ -45,7 +45,7 @@
     formData.append('jobDescription', jobDescription);
     setStatus('Analyzing...');
     try {
-      const res = await fetch(${API_BASE}/matchResume, { method: 'POST', body: formData });
+      const res = await fetch(`${API_BASE}/matchResume`, { method: 'POST', body: formData });
       if (!res.ok) throw new Error('API error');
       const data = await res.json();
       localStorage.setItem('matchResult', JSON.stringify(data));
