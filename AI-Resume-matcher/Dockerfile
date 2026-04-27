@@ -6,4 +6,4 @@ COPY . .
 
 RUN mvn clean package -DskipTests
 
-CMD ["java", "-jar", "AI-Resume-matcher/target/*.jar"]
+CMD sh -c "java -jar AI-Resume-matcher/target/*.jar"
