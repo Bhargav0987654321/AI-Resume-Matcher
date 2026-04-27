@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis Results | AI Resume Matcher</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Resume Matcher</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="upload.html" class="nav-link">Analyze</a>
+        <a href="result.html" class="nav-link active">Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="results-container">
+    <!-- No Data State -->
+    <div id="noDataState" class="no-data-state">
+      <div class="no-data-content">
+        <div class="no-data-icon">📊</div>
+        <h2>No Analysis Yet</h2>
+        <p>Run an analysis from the Upload page to see results here</p>
+        <a href="upload.html" class="btn btn-primary">Start Analysis</a>
+      </div>
+    </div>
+
+    <!-- Results Dashboard -->
+    <div id="resultsState" class="results-dashboard" style="display: none;">
+      <!-- Header with Score -->
+      <div class="results-header fade-in-up">
+        <h1>Your Match Analysis</h1>
+        <div class="main-score-card">
+          <div class="score-circle">
+            <canvas id="matchGauge" class="gauge-chart"></canvas>
+            <div class="score-text">
+              <span id="scoreValue" class="score-number">0%</span>
+              <span class="score-label">Match</span>
+            </div>
+          </div>
+          <div class="score-interpretation">
+            <h3 id="scoreTitle">Analyzing...</h3>
+            <p id="scoreDescription">Your resume match analysis is ready</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Results Grid -->
+      <div class="results-grid">
+        <!-- Matched Skills -->
+        <div class="result-card fade-in-up" style="animation-delay: 0.1s;">
+          <div class="card-header">
+            <h2>Matched Skills</h2>
+            <span class="badge" id="matchedCount">0</span>
+          </div>
+          <ul class="skills-list" id="matchedList">
+            <li class="placeholder">Loading...</li>
+          </ul>
+        </div>
+
+        <!-- Missing Skills -->
+        <div class="result-card fade-in-up" style="animation-delay: 0.2s;">
+          <div class="card-header">
+            <h2>Missing Skills</h2>
+            <span class="badge badge-danger" id="missingCount">0</span>
+          </div>
+          <ul class="skills-list" id="missingList">
+            <li class="placeholder">Loading...</li>
+          </ul>
+        </div>
+
+        <!-- Skill Radar -->
+        <div class="result-card full-width fade-in-up" style="animation-delay: 0.3s;">
+          <div class="card-header">
+            <h2>Skill Distribution</h2>
+          </div>
+          <div class="radar-container">
+            <canvas id="skillRadar" class="radar-chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="result-card full-width fade-in-up" style="animation-delay: 0.4s;">
+          <div class="card-header">
+            <h2>Smart Recommendations</h2>
+          </div>
+          <ul class="recommendations-list" id="suggestionsList">
+            <li class="placeholder">Loading...</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="results-actions fade-in-up" style="animation-delay: 0.5s;">
+        <button class="btn btn-primary" id="downloadBtn">
+          <span class="btn-icon">📥</span>
+          Download PDF Report
+        </button>
+        <a href="upload.html" class="btn btn-secondary">
+          <span class="btn-icon">🔄</span>
+          New Analysis
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 AI Resume Matcher. Refresh page after each analysis.</p>
+  </footer>
+
+  <script src="js/analysis.js"></script>
+  <script src="js/charts.js"></script>
+</body>
+</html>

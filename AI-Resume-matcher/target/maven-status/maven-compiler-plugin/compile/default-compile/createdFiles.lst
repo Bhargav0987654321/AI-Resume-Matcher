@@ -1,0 +1,9 @@
+com\resumematcher\util\ReportGenerator.class
+com\resumematcher\model\MatchResult.class
+com\resumematcher\service\ResumeParserService.class
+com\resumematcher\controller\ResumeController.class
+com\resumematcher\model\ResumeData.class
+com\resumematcher\service\SkillExtractorService.class
+com\resumematcher\ResumeMatcherApplication.class
+com\resumematcher\ResumeMatcherApplication$1.class
+com\resumematcher\service\JobMatcherService.class

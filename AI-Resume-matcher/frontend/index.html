@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Resume Matcher - Smart Resume Analysis Tool</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Resume Matcher</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="upload.html" class="nav-link">Analyze</a>
+        <a href="result.html" class="nav-link">Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content fade-in-up">
+        <h1 class="hero-title">AI Resume Matcher</h1>
+        <p class="hero-subtitle">Get instant insights on how well your resume matches any job description</p>
+        <div class="cta-buttons">
+          <a href="upload.html" class="btn btn-primary">Start Analyzing</a>
+          <a href="#features" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-stats fade-in-up" style="animation-delay: 0.2s;">
+        <div class="stat-card">
+          <div class="stat-number">60<span>s</span></div>
+          <div class="stat-label">Quick Analysis</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100<span>+</span></div>
+          <div class="stat-label">Skills Detected</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">AI<span>✓</span></div>
+          <div class="stat-label">Powered</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <h2 class="section-title">How It Works</h2>
+      <div class="features-grid">
+        <div class="feature-card fade-in-up">
+          <div class="feature-number">1</div>
+          <h3>Upload Resume</h3>
+          <p>Drop your resume in PDF or DOCX format</p>
+        </div>
+        <div class="feature-card fade-in-up" style="animation-delay: 0.1s;">
+          <div class="feature-number">2</div>
+          <h3>Paste Job Description</h3>
+          <p>Paste the job role you're targeting</p>
+        </div>
+        <div class="feature-card fade-in-up" style="animation-delay: 0.2s;">
+          <div class="feature-number">3</div>
+          <h3>Instant Analysis</h3>
+          <p>Get detailed match score and recommendations</p>
+        </div>
+        <div class="feature-card fade-in-up" style="animation-delay: 0.3s;">
+          <div class="feature-number">4</div>
+          <h3>Download Report</h3>
+          <p>Export a professional PDF analysis report</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preview Section -->
+    <section class="preview">
+      <div class="preview-content">
+        <h2 class="section-title">Dashboard Preview</h2>
+        <div class="preview-grid">
+          <div class="preview-card">
+            <h4>Match Score</h4>
+            <div class="preview-chart">
+              <canvas id="previewChart" width="200" height="200"></canvas>
+            </div>
+            <p class="preview-text">See your overall match percentage</p>
+          </div>
+          <div class="preview-card">
+            <h4>Skill Analysis</h4>
+            <div class="preview-skills">
+              <div class="skill-item matched">✓ Java</div>
+              <div class="skill-item matched">✓ Spring Boot</div>
+              <div class="skill-item missing">✗ Docker</div>
+              <div class="skill-item missing">✗ Kubernetes</div>
+            </div>
+            <p class="preview-text">Matched vs missing skills</p>
+          </div>
+          <div class="preview-card">
+            <h4>Smart Suggestions</h4>
+            <div class="preview-suggestions">
+              <div class="suggestion-item">Learn Docker & Kubernetes</div>
+              <div class="suggestion-item">Add project examples</div>
+              <div class="suggestion-item">Improve ATS compatibility</div>
+            </div>
+            <p class="preview-text">AI-powered recommendations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <h2>Ready to improve your resume match?</h2>
+      <p>Get started in seconds with our AI-powered analysis tool</p>
+      <a href="upload.html" class="btn btn-primary btn-large">Analyze Your Resume Now</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 AI Resume Matcher. Built with <span style="color: #ff7b5f;">❤</span> for job seekers.</p>
+      <p style="font-size: 12px; margin-top: 8px; color: var(--muted);">Powered by Spring Boot & React</p>
+    </div>
+  </footer>
+
+  <script>
+    // Trigger animations
+    gsap.registerPlugin();
+    
+    document.querySelectorAll('.fade-in-up').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+    });
+
+    gsap.to('.fade-in-up', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: 'power3.out'
+    });
+
+    // Preview chart
+    const ctx = document.getElementById('previewChart');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Matched', 'Gap'],
+          datasets: [{
+            data: [74, 26],
+            backgroundColor: ['#ff7b5f', '#1b2236'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: { display: false }
+          },
+          cutout: '65%'
+        }
+      });
+    }
+  </script>
+</body>
+</html>

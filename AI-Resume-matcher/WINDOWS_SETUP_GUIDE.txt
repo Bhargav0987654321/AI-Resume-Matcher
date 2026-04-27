@@ -1,0 +1,343 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                   AI RESUME MATCHER - WINDOWS SETUP GUIDE                  ║
+║                    Complete Instructions for Windows Users                 ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+👋 YOU'RE ON WINDOWS! Here's how to set it up:
+
+════════════════════════════════════════════════════════════════════════════
+
+📍 WHERE TO PUT THE PROJECT:
+
+Create a folder on your Windows computer:
+  C:\Users\niran\projects\resume-matcher
+
+Or anywhere you like:
+  C:\Users\niran\Desktop\resume-matcher
+  C:\Users\niran\Documents\my-projects\resume-matcher
+
+════════════════════════════════════════════════════════════════════════════
+
+📥 STEP 1: DOWNLOAD THE PROJECT FILES
+
+From the chat above, download these files and put them in your folder:
+
+Documentation:
+  □ _READ_ME_FIRST.txt
+  □ RUN_NOW.md
+  □ INSTALLATION.md
+  □ QUICK_START.md
+  □ README.md
+  □ FOLDER_STRUCTURE.txt
+
+Configuration:
+  □ pom.xml
+
+Backend (Create src\main\java\com\resumematcher\ folder):
+  □ ResumeMatcherApplication.java
+  □ ResumeController.java
+  □ ResumeParserService.java
+  □ SkillExtractorService.java
+  □ JobMatcherService.java
+  □ ReportGenerator.java
+  □ ResumeData.java
+  □ MatchResult.java
+
+Backend Resources (Create src\main\resources\ folder):
+  □ application.properties
+
+Frontend (Create frontend\ folder):
+  □ index.html
+  □ upload.html
+  □ result.html
+  
+Frontend CSS (Create frontend\css\ folder):
+  □ style.css
+  □ animations.css
+
+Frontend JS (Create frontend\js\ folder):
+  □ upload.js
+  □ analysis.js
+  □ charts.js
+
+════════════════════════════════════════════════════════════════════════════
+
+✅ STEP 2: CHECK YOUR PREREQUISITES
+
+Open Command Prompt (cmd.exe) and run:
+
+  java -version
+  
+Should show: Java 17 or higher
+If not → Install from: https://www.oracle.com/java/technologies/downloads/
+
+  mvn -version
+  
+Should show: Maven 3.6 or higher
+If not → Install from: https://maven.apache.org/download.cgi
+
+  python --version
+  
+Should show: Python 3.6 or higher
+If not → Install from: https://www.python.org/downloads/
+
+════════════════════════════════════════════════════════════════════════════
+
+⚙️ STEP 3: INSTALL JAVA 17
+
+1. Go to: https://www.oracle.com/java/technologies/downloads/
+2. Download: JDK 17 (Windows x64 Installer)
+3. Run the installer
+4. Accept all defaults
+5. Restart your computer
+
+Verify:
+  open cmd.exe
+  type: java -version
+  should see: Java 17.x.x
+
+════════════════════════════════════════════════════════════════════════════
+
+⚙️ STEP 4: INSTALL MAVEN
+
+1. Go to: https://maven.apache.org/download.cgi
+2. Download: apache-maven-3.9.x-bin.zip
+3. Extract to: C:\Program Files\Apache\Maven (or anywhere)
+4. Add to System PATH:
+   a. Open: Windows Settings → System → Advanced system settings
+   b. Click: Environment Variables
+   c. Under "System variables" click "New"
+   d. Variable name: MAVEN_HOME
+   e. Variable value: C:\Program Files\Apache\Maven (or your path)
+   f. Click OK
+   g. Find "Path" in System variables → Edit
+   h. Click New → add: C:\Program Files\Apache\Maven\bin
+   i. Click OK → OK → OK
+5. Restart Command Prompt
+
+Verify:
+  open new cmd.exe
+  type: mvn -version
+  should see: Maven 3.9.x
+
+════════════════════════════════════════════════════════════════════════════
+
+⚙️ STEP 5: INSTALL PYTHON (if needed)
+
+1. Go to: https://www.python.org/downloads/
+2. Download: Python 3.10 or higher
+3. Run installer
+4. ✅ CHECK: "Add Python to PATH"
+5. Install
+6. Restart Command Prompt
+
+Verify:
+  open new cmd.exe
+  type: python --version
+  should see: Python 3.10.x or higher
+
+════════════════════════════════════════════════════════════════════════════
+
+🚀 STEP 6: RUN THE APPLICATION
+
+Open Command Prompt and navigate to your project:
+
+  cd C:\Users\niran\projects\resume-matcher
+
+(Replace with your actual path)
+
+════════════════════════════════════════════════════════════════════════════
+
+🔧 STEP 6A: START BACKEND (Terminal 1)
+
+  cd C:\Users\niran\projects\resume-matcher
+  mvn spring-boot:run
+
+Wait for:
+  Started ResumeMatcherApplication in X.XXX seconds
+
+✅ LEAVE THIS WINDOW OPEN! Don't close it.
+
+════════════════════════════════════════════════════════════════════════════
+
+🌐 STEP 6B: START FRONTEND (Terminal 2)
+
+Open ANOTHER Command Prompt window:
+
+  cd C:\Users\niran\projects\resume-matcher\frontend
+  python -m http.server 5500
+
+Wait for:
+  Serving HTTP on 0.0.0.0 port 5500
+
+✅ LEAVE THIS WINDOW OPEN! Don't close it.
+
+════════════════════════════════════════════════════════════════════════════
+
+💻 STEP 6C: OPEN IN BROWSER
+
+Open your web browser (Chrome, Firefox, Edge, Safari) and go to:
+
+  http://localhost:5500
+
+You should see the beautiful Resume Matcher landing page!
+
+════════════════════════════════════════════════════════════════════════════
+
+✨ STEP 7: USE THE APPLICATION
+
+1. Click "Analyze" in the menu
+2. Upload a resume (PDF or DOCX)
+3. Paste a job description
+4. Click "Analyze Resume"
+5. Wait 3-5 seconds
+6. See the results!
+
+════════════════════════════════════════════════════════════════════════════
+
+📁 YOUR FOLDER STRUCTURE SHOULD LOOK LIKE:
+
+C:\Users\niran\projects\resume-matcher\
+├── pom.xml
+├── README.md
+├── _READ_ME_FIRST.txt
+├── RUN_NOW.md
+├── INSTALLATION.md
+├── QUICK_START.md
+├── FOLDER_STRUCTURE.txt
+│
+├── src\
+│   └── main\
+│       ├── java\
+│       │   └── com\resumematcher\
+│       │       ├── ResumeMatcherApplication.java
+│       │       ├── controller\
+│       │       │   └── ResumeController.java
+│       │       ├── service\
+│       │       │   ├── ResumeParserService.java
+│       │       │   ├── SkillExtractorService.java
+│       │       │   └── JobMatcherService.java
+│       │       ├── model\
+│       │       │   ├── ResumeData.java
+│       │       │   └── MatchResult.java
+│       │       └── util\
+│       │           └── ReportGenerator.java
+│       │
+│       └── resources\
+│           └── application.properties
+│
+└── frontend\
+    ├── index.html
+    ├── upload.html
+    ├── result.html
+    ├── css\
+    │   ├── style.css
+    │   └── animations.css
+    └── js\
+        ├── upload.js
+        ├── analysis.js
+        └── charts.js
+
+════════════════════════════════════════════════════════════════════════════
+
+🆘 TROUBLESHOOTING FOR WINDOWS:
+
+Problem: "The system cannot find the path specified"
+Solution: Make sure you're in the right folder
+  Type: cd /d C:\Users\niran\projects\resume-matcher
+
+Problem: "Java not found"
+Solution: Java not installed or not in PATH
+  1. Install Java from: https://www.oracle.com/java/
+  2. Restart Command Prompt
+  3. Type: java -version
+
+Problem: "mvn not found"
+Solution: Maven not installed or not in PATH
+  1. Install Maven from: https://maven.apache.org/
+  2. Add to PATH (see STEP 4)
+  3. Restart Command Prompt
+  4. Type: mvn -version
+
+Problem: "Port 8080 already in use"
+Solution: Another app is using port 8080
+  Option 1: Find what's using it:
+    netstat -ano | findstr :8080
+    taskkill /PID <number> /F
+  Option 2: Use different port in application.properties
+
+Problem: "Cannot connect to backend"
+Solution: Make sure Terminal 1 is STILL RUNNING
+  Check: First Command Prompt window showing Spring Boot logs
+  If closed: Run "mvn spring-boot:run" again
+
+Problem: "Page won't load at http://localhost:5500"
+Solution: Frontend not started
+  Check: Second Command Prompt window running Python
+  If not: Run "python -m http.server 5500" again
+  Clear browser cache: Ctrl+Shift+Delete
+
+Problem: "File upload fails"
+Solution: 
+  - File must be PDF or DOCX
+  - File size must be under 10MB
+  - Try a different file
+
+════════════════════════════════════════════════════════════════════════════
+
+💡 HELPFUL COMMANDS:
+
+# Navigate to your project
+cd C:\Users\niran\projects\resume-matcher
+
+# Build project (first time)
+mvn clean install
+
+# Start backend
+mvn spring-boot:run
+
+# Start frontend (in frontend folder)
+python -m http.server 5500
+
+# Check if port 8080 is in use
+netstat -ano | findstr :8080
+
+# Kill a process (get PID from above)
+taskkill /PID <PID> /F
+
+# View folder structure
+dir /s /b
+
+════════════════════════════════════════════════════════════════════════════
+
+⏱️ EXPECTED TIMING:
+
+First build (downloading Maven dependencies): 3-5 minutes
+Backend startup: 30 seconds
+Frontend startup: 5 seconds
+Page load: < 2 seconds
+First analysis: 3-5 seconds
+
+TOTAL TIME TO FIRST ANALYSIS: ~10 minutes
+
+════════════════════════════════════════════════════════════════════════════
+
+📖 WHAT TO READ NEXT:
+
+1. _READ_ME_FIRST.txt - Quick overview
+2. RUN_NOW.md - 5-step startup
+3. INSTALLATION.md - Detailed setup
+4. QUICK_START.md - Full instructions
+
+════════════════════════════════════════════════════════════════════════════
+
+🎉 YOU'RE READY!
+
+Follow these steps and you'll have the Resume Matcher running on Windows
+in about 30 minutes!
+
+Questions? Check the documentation files - all answers are there!
+
+Happy job hunting! 💼
+
+════════════════════════════════════════════════════════════════════════════

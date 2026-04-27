@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analyze Resume | AI Resume Matcher</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Resume Matcher</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="upload.html" class="nav-link active">Analyze</a>
+        <a href="result.html" class="nav-link">Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="upload-container">
+    <div class="upload-form-wrapper fade-in-up">
+      <div class="form-header">
+        <h1>Resume Analysis</h1>
+        <p>Upload your resume and paste the job description to get instant insights</p>
+      </div>
+
+      <form class="upload-form" id="analyzeForm">
+        <!-- Resume Upload Section -->
+        <div class="form-group">
+          <label for="resumeFile" class="form-label">
+            <span class="label-icon">📄</span>
+            Resume (PDF or DOCX)
+          </label>
+          <div class="upload-drop-zone" id="dropZone">
+            <input type="file" id="resumeFile" accept=".pdf,.docx,.doc" style="display: none;" />
+            <div class="drop-content">
+              <div class="drop-icon">📁</div>
+              <p class="drop-text">Drag and drop your resume here</p>
+              <p class="drop-subtext">or click to select a file</p>
+              <p class="drop-hint">Max file size: 10MB</p>
+            </div>
+          </div>
+          <div id="fileStatus" class="file-status"></div>
+        </div>
+
+        <!-- Job Description Section -->
+        <div class="form-group">
+          <label for="jobDescription" class="form-label">
+            <span class="label-icon">💼</span>
+            Job Description
+          </label>
+          <textarea 
+            id="jobDescription" 
+            class="form-textarea"
+            placeholder="Paste the complete job description here..."
+            rows="10"
+          ></textarea>
+          <div class="textarea-hint">
+            <span id="charCount">0</span> / 5000 characters
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-large" id="analyzeBtn">
+            <span class="btn-icon">⚡</span>
+            Analyze Resume
+          </button>
+          <span id="status" class="status-message"></span>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div id="progressContainer" class="progress-container" style="display: none;">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <p class="progress-text">Analyzing your resume...</p>
+        </div>
+      </form>
+
+      <!-- Tips Section -->
+      <div class="tips-section">
+        <h3>Tips for Best Results</h3>
+        <ul class="tips-list">
+          <li>✓ Use a well-formatted resume with clear sections</li>
+          <li>✓ Paste the complete job description, not just summary</li>
+          <li>✓ Ensure your resume mentions all relevant skills</li>
+          <li>✓ Support: PDF and DOCX formats</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 AI Resume Matcher. Made with passion for job seekers.</p>
+  </footer>
+
+  <script src="js/upload.js"></script>
+</body>
+</html>
