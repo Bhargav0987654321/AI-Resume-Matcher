@@ -19,10 +19,17 @@ public class ResumeMatcherApplication {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-                        .allowedOrigins("http://localhost:3000", "http://localhost:5500", "http://127.0.0.1:5500", "file://")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedOriginPatterns(
+                            "http://localhost:*",
+                            "http://127.0.0.1:*",
+                            "https://*.onrender.com",
+                            "https://*.vercel.app",
+                            "file://"
+                        )
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
                         .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowCredentials(true)
+                        .maxAge(3600);
             }
         };
     }
